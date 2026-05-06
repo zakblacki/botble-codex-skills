@@ -5,7 +5,7 @@
     "provider": "Zakblacki\\BotbleCodexSkills\\Providers\\BotbleCodexSkillsServiceProvider",
     "author": "Zakblacki",
     "url": "https://github.com/zakblacki/botble-codex-skills",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Codex skills for Botble CMS plugin, theme, ecommerce, API, translation, seeder, testing, and code review workflows.",
     "minimum_core_version": "7.0.0"
 }
