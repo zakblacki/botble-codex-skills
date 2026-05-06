@@ -1,0 +1,3 @@
+display_name: Botble Code Review
+short_description: Review Botble CMS code for security, Envato readiness, enum bugs, translations, media, queries, and architecture issues.
+default_prompt: Review the Botble CMS changes and report actionable findings by severity.

@@ -1,0 +1,3 @@
+display_name: Botble Database Seeders
+short_description: Create Botble seeders with realistic content, local media assets, translations, and ecommerce-ready demo data.
+default_prompt: Build or review Botble CMS seeders using realistic data and proper translation/media structure.

@@ -1,0 +1,3 @@
+display_name: Botble Conventions
+short_description: Core Botble CMS rules for enums, models, translations, security, media, and frontend code.
+default_prompt: Apply Botble CMS conventions to the current implementation or review task.
