@@ -1,3 +1,4 @@
-display_name: Botble Ecommerce
-short_description: Build and review Botble ecommerce product, order, cart, checkout, payment, and storefront code.
-default_prompt: Implement or review Botble ecommerce code with proper models, enums, hooks, helpers, and product query patterns.
+interface:
+  display_name: "Botble Ecommerce"
+  short_description: "Build Botble product, cart, checkout, and payment flows."
+  default_prompt: "Use $botble-ecommerce to implement or review this Botble ecommerce workflow."

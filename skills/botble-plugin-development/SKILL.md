@@ -12,9 +12,9 @@ Use Botble conventions first, then apply this plugin-specific workflow.
 1. Inspect nearby plugins before adding new structure.
 2. Prefer Botble generators where available: `php artisan cms:plugin:create`, `cms:make:model`, `cms:make:form`, `cms:make:table`, `cms:make:controller`, `cms:make:request`, `cms:make:route`.
 3. Create the plugin under `platform/plugins/{plugin}` with predictable namespaces, translations, routes, providers, migrations, and `plugin.json`.
-4. Register admin routes through `AdminHelper::registerRoutes()` and use `wherePrimaryKey()` for route IDs.
+4. Register admin routes through `AdminHelper::registerRoutes()`. Prefer implicit route model binding; use `wherePrimaryKey()` on custom raw-ID routes.
 5. Register permissions in `config/permissions.php` and attach them to dashboard menu items and routes.
-6. Implement `activate()`, `deactivate()`, and `remove()` only when lifecycle work is needed. `remove()` must drop all plugin tables and clean plugin settings.
+6. Implement `activate()`, `deactivate()`, and `removed()` only when lifecycle work is needed. `removed()` must drop all plugin tables and clean plugin settings.
 7. Run syntax, formatting, and targeted tests.
 
 ## Required Structure
@@ -25,9 +25,13 @@ platform/plugins/your-plugin/
   config/permissions.php
   database/migrations/
   resources/lang/en/your-plugin.php
+  resources/js/
+  resources/sass/
   resources/views/
+  public/
   routes/web.php
   routes/api.php
+  src/Database/
   src/Enums/
   src/Forms/
   src/Http/Controllers/
@@ -37,7 +41,9 @@ platform/plugins/your-plugin/
   src/Repositories/
   src/Services/
   src/Tables/
+  src/Widgets/
   src/Plugin.php
+  vite.build.mjs
   plugin.json
 ```
 
@@ -52,6 +58,7 @@ platform/plugins/your-plugin/
 - Use `trans('plugins/{plugin}::file.key')`, never `__()` in plugin code.
 - Register SlugHelper, SeoHelper, LanguageAdvancedManager, DashboardMenu, hooks, and assets only when the plugin needs them.
 - Use `BaseHelper::clean()` for unescaped HTML and `RvMedia::getImageUrl()` for media.
+- Declare assets in `vite.build.mjs`; do not create `webpack.mix.js`. Run `npm run production` when distributable assets must be mirrored into the plugin's `public/` directory.
 
 ## Load References
 

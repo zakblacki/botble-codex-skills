@@ -27,9 +27,11 @@ platform/themes/{theme}/
   lang/
   layouts/
   partials/
+  public/
   views/
   widgets/
   theme.json
+  vite.build.mjs
 ```
 
 ## Rules
@@ -42,6 +44,7 @@ platform/themes/{theme}/
 - Register frontend routes through `Theme::registerRoutes()` when theme routes are needed.
 - For multiple shortcode instances, generate unique slider/carousel IDs.
 - Do not add CDN assets or inline scripts/styles.
+- Declare theme asset entries in `vite.build.mjs`; do not add `webpack.mix.js`.
 
 ## Shortcodes
 
@@ -55,6 +58,12 @@ When the theme uses TailwindCSS v4:
 - Use `@source`, `@custom-variant dark`, and `@theme`.
 - Use OKLCH colors when defining design tokens.
 - Implement dark mode via the `.dark` class on `<html>`.
+
+## Asset Builds
+
+- Run `npm run dev` for an unminified build.
+- Run `npm run production` for minified assets and the module-local `public/` mirror.
+- Do not prescribe `npm run watch`; Botble's Vite pipeline has no watch mode or dev server.
 
 ## Load References
 

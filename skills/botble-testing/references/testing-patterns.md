@@ -17,7 +17,7 @@ class ReviewPluginTest extends TestCase
             'status' => ReviewStatusEnum::PUBLISHED,
         ];
 
-        $response = $this->loginAs()->post(route('reviews.create'), $data);
+        $response = $this->loginAs()->post(route('reviews.store'), $data);
 
         $response->assertRedirect();
         $this->assertDatabaseHas('plugin_reviews', [

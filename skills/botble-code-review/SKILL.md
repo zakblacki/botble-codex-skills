@@ -25,7 +25,7 @@ High:
 
 Medium:
 
-- ID parameters not typed as `int|string`.
+- Raw ID parameters not typed as `int|string` when implicit route model binding is not used.
 - Hardcoded user-facing strings.
 - `bigInteger` or `unsignedBigInteger` foreign keys instead of `foreignId()`.
 - Cookie reads without allowlist validation.
@@ -49,9 +49,11 @@ Low:
 - Badge classes pair `bg-{color}` with `text-{color}-fg`.
 - Custom table rendering uses `FormattedColumn::make()`.
 - Product eager loading includes both `image` and `images` when image accessors need them.
-- Plugin `remove()` drops all plugin tables and cleans all plugin settings.
+- Plugin `removed()` drops all plugin tables and cleans all plugin settings.
 - Plugin translations use `trans()`, not `__()`.
 - Media paths render through `RvMedia::getImageUrl()`.
+- New modules use `vite.build.mjs`, not legacy `webpack.mix.js`; production builds use `npm run production`, and no Vite watch/dev-server workflow is documented.
+- Treat trusted framework renderers such as `RvMedia::image()` and `Theme::partial()` separately from user-controlled raw HTML when reviewing `{!! !!}` output.
 
 ## Output
 

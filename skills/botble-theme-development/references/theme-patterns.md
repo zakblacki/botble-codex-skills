@@ -36,6 +36,17 @@ $phone = theme_option('hotline');
 
 Use `inherit` in `theme.json` to declare the parent theme. Override only the needed layouts, partials, views, assets, or language entries.
 
+## Vite Descriptor
+
+```js
+export default {
+    js: [{ src: 'assets/js/theme.js', out: 'theme.js' }],
+    sass: [{ src: 'assets/sass/style.scss', out: 'style.css' }],
+}
+```
+
+Build from the project root with `npm run dev` or `npm run production`.
+
 ## View Composer Guidance
 
 Prepare shared header/footer data in a composer or service provider. Do not run product, menu, or settings queries directly from repeated partials.

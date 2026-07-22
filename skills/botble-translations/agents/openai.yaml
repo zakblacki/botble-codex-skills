@@ -1,3 +1,4 @@
-display_name: Botble Translations
-short_description: Add and review Botble plugin PHP translations, theme JSON translations, placeholders, and supported locales.
-default_prompt: Implement or review Botble CMS translations with the correct helper and file format.
+interface:
+  display_name: "Botble Translations"
+  short_description: "Create correct Botble plugin and theme translations."
+  default_prompt: "Use $botble-translations to implement or review these Botble CMS translations."

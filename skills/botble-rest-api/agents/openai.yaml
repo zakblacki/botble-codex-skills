@@ -1,3 +1,4 @@
-display_name: Botble REST API
-short_description: Build Botble API controllers, resources, auth, headers, guest carts, and response formats.
-default_prompt: Implement or review Botble CMS REST API code using the platform API conventions.
+interface:
+  display_name: "Botble REST API"
+  short_description: "Build secure Botble APIs for apps and integrations."
+  default_prompt: "Use $botble-rest-api to implement or review this Botble CMS API."

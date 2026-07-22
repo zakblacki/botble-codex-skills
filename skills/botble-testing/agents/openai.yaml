@@ -1,3 +1,4 @@
-display_name: Botble Testing
-short_description: Write Botble PHPUnit tests for plugins, APIs, ecommerce, permissions, requests, and regressions.
-default_prompt: Add or review Botble CMS tests using real database behavior and project test helpers.
+interface:
+  display_name: "Botble Testing"
+  short_description: "Write focused Botble PHPUnit and integration tests."
+  default_prompt: "Use $botble-testing to add or review focused tests for this Botble change."

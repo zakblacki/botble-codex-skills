@@ -1,3 +1,4 @@
-display_name: Botble Theme Development
-short_description: Build Botble themes, shortcodes, widgets, assets, routes, and theme views with correct media and translation patterns.
-default_prompt: Implement or review Botble CMS theme code following theme-specific conventions.
+interface:
+  display_name: "Botble Theme Development"
+  short_description: "Build Botble themes, shortcodes, widgets, and assets."
+  default_prompt: "Use $botble-theme-development to implement or review this Botble CMS theme work."

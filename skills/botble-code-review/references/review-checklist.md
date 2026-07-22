@@ -15,12 +15,14 @@ Search for:
 - `Column::make`
 - `setInterval`
 - `$_COOKIE`
+- `webpack.mix.js|npm run prod|npm run watch`
 
 ## False Positives
 
 - `__()` is acceptable in theme JSON translation contexts.
 - `where('status', SomeEnum::VALUE)` is acceptable because bindings use raw constants.
 - Request input values are raw strings and do not need enum instances.
+- Trusted framework-rendered HTML such as `RvMedia::image()` is not equivalent to unsanitized user content.
 
 ## Findings Format
 

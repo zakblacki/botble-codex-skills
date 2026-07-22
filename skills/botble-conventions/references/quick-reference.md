@@ -80,3 +80,14 @@ return $this
     ->setPreviousUrl(route('plugin.index'))
     ->withCreatedSuccessMessage();
 ```
+
+## Assets
+
+```text
+vite-build.mjs                       # shared root runner; do not edit
+platform/plugins/name/vite.build.mjs # module descriptor
+npm run dev                          # development build
+npm run production                   # production build and module-public mirror
+```
+
+Do not add new `webpack.mix.js` files or document a Vite watch/dev-server workflow.

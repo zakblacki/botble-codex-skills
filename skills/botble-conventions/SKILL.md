@@ -16,15 +16,16 @@ Read `references/quick-reference.md` when implementing or reviewing Botble code.
 - Treat `platform/core`, `platform/packages`, `platform/plugins`, and `platform/themes` as modular boundaries.
 - Use Botble artisan generators when available: `php artisan cms:make:model`, `cms:make:form`, `cms:make:table`, `cms:make:controller`, `cms:make:request`, `cms:make:route`.
 - Dump Composer autoload after adding or moving platform modules.
-- Keep module webpack builds in each module's own `webpack.mix.js`; root webpack dynamically loads modules from npm env vars.
-- Do not import Vue when the project externalizes it; use the global `Vue` object when that local pattern is present.
+- Use the root `vite-build.mjs` runner without editing it. Declare plugin, package, or theme assets in the module's `vite.build.mjs` descriptor.
+- Delete legacy `webpack.mix.js` files after migrating their entries to Vite.
+- Set `vue: true` when a Vite entry imports Vue SFCs. Do not bundle another Vue runtime; Botble externalizes it to `window.Vue`.
 
 ## Critical Rules
 
 - Extend `Botble\Base\Models\BaseModel`, never plain Eloquent `Model`.
 - Use `Model::query()` instead of the `DB` facade for model data.
 - Eager load relations with `->with([...])` before rendering lists, cards, or API payloads.
-- Type ID parameters as `int|string`; use `wherePrimaryKey()` for routes and `$model->getKey()` when ID type matters.
+- Prefer implicit route model binding. Type raw ID parameters as `int|string`, use `wherePrimaryKey()` for custom ID constraints, and use `$model->getKey()` when ID type matters.
 - Define casts with a `casts(): array` method in Laravel 12+ style unless the project already uses a different local convention.
 - Use `foreignId()` for foreign key columns in migrations.
 
@@ -63,6 +64,7 @@ Raw request values and query bindings do not need enum object conversion.
 - Send `X-CSRF-TOKEN` for AJAX requests that mutate state.
 - Read cookies through `request()->cookie()` and validate names/values against an allowlist.
 - Do not add CDN assets; bundle libraries locally or use Botble helpers such as `BaseHelper::googleFonts()`.
+- Keep dependencies current and check `npm outdated` when changing frontend dependencies.
 
 ## Media
 
@@ -84,3 +86,4 @@ Before handing work back, run the narrowest useful checks:
 - PHP syntax for changed PHP files: `php -l path/to/file.php`.
 - Formatting: `./vendor/bin/pint` or the project equivalent.
 - Tests: `vendor/bin/phpunit`, `php artisan test`, or targeted tests.
+- Assets: `npm run dev` for development or `npm run production` for a production build. Botble's Vite pipeline has no watch mode or dev server.

@@ -1,3 +1,4 @@
-display_name: Botble Plugin Development
-short_description: Scaffold and implement Botble CMS plugins with proper models, forms, tables, routes, providers, permissions, and lifecycle cleanup.
-default_prompt: Build or update a Botble CMS plugin following Botble architecture and coding conventions.
+interface:
+  display_name: "Botble Plugin Development"
+  short_description: "Build Botble plugins with complete admin and lifecycle wiring."
+  default_prompt: "Use $botble-plugin-development to build or update this Botble CMS plugin."
